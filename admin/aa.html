@@ -1,0 +1,66 @@
+<html lang="en" class=""><head>
+<meta charset="UTF-8">
+<meta name="author" content="Jose Francisco Diaz / picssel.com">
+<title>add print button to fancybox 2 image gallery</title>
+  <link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+<style type="text/css">
+a {outline: 0 none;}
+#wrap {
+ width: 800px;
+ margin: 0 auto;
+}
+div#fancy_print {
+ background: url("images/print2.jpg") no-repeat scroll left top transparent;
+ cursor: pointer;
+ width: 58px;
+ height: 60px;
+ position: absolute;
+ left: -15px;
+ top: -15px;
+ z-index: 9999;
+ display: block;
+}
+</style>
+<script src="jquery.js"></script>
+  <script type="text/javascript" src="fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+<script>
+$(document).ready(function() {
+ $('.fancybox').attr("rel","gallery").fancybox({
+  afterShow: function(){
+    var win=null;
+    var content = $('.fancybox-inner');
+    $('.fancybox-wrap')
+    // append print button
+    .append('<div id="fancy_print"></div>')
+    // use .on() in its delegated form to bind a click to the print button event for future elements
+    .on("click", "#fancy_print", function(){
+      win = window.open("width=200,height=200");
+      self.focus();
+      win.document.open();
+      win.document.write('<'+'html'+'><'+'head'+'><'+'style'+'>');
+      win.document.write('body, td { font-family: Verdana; font-size: 10pt;}');
+      win.document.write('<'+'/'+'style'+'><'+'/'+'head'+'><'+'body'+'>');
+      win.document.write(content.html());
+      win.document.write('<'+'/'+'body'+'><'+'/'+'html'+'>');
+      win.document.close();
+      win.print();
+      win.close();
+    }); // on
+  } //  afterShow
+ }); // fancybox
+}); //  ready
+</script>
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+<body>
+<div id="wrap">
+ <h3>Open a fancybox gallery with print button functionality</h3>
+ <p>REF: <a href="http://stackoverflow.com/q/11485198/1055987">http://stackoverflow.com/q/11485198/1055987</a></p>
+ <p>This is a solution for fancybox 2 with image galleries</p>
+ <a class="fancybox" href="images/01.jpg" rel="gallery"><img src="images/01t.jpg" alt="image01"></a>
+ <a class="fancybox" href="images/02.jpg" rel="gallery"><img src="images/02t.jpg" alt="image01"></a>
+ <a class="fancybox" href="images/03.jpg" rel="gallery"><img src="images/03t.jpg" alt="image01"></a>
+ <a class="fancybox" href="images/04.jpg" rel="gallery"><img src="images/04t.jpg" alt="image01"></a><br><br>
+	<p><em>Original print code from the article <a href="http://www.thatagency.com/design-studio-blog/2010/04/add-print-ability-to-fancybox-jquery-plugin/"><strong>Add print ability to fancybox jquery plugin</strong></a>, That Agency ©</em></p><p></p><p>Modified by Francisco Diaz (JFK) :: picssel.com</p>
+</div><!--wrap-->
+ 
+</body></html>

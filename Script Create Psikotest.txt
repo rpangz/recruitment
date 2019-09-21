@@ -1,0 +1,397 @@
+DROP TABLE IF EXISTS `recruitment`.`datakeluarga_ck`;
+CREATE TABLE  `recruitment`.`datakeluarga_ck` (
+  `id_calon_karyawan` varchar(25) NOT NULL,
+  `nama_ayah` varchar(45) NOT NULL,
+  `pekerjaan_ayah` varchar(45) NOT NULL,
+  `nama_ibu` varchar(45) NOT NULL,
+  `pekerjaan_ibu` varchar(45) NOT NULL,
+  `telp_ortu` varchar(20) NOT NULL,
+  `alamat_ortu` longtext NOT NULL,
+  `status_rumah_ortu` varchar(20) NOT NULL,
+  `saudara1` varchar(45) NOT NULL,
+  `alamat_saudara1` longtext NOT NULL,
+  `status_rumah_saudara1` varchar(20) NOT NULL,
+  `telp_saudara1` varchar(20) NOT NULL,
+  `saudara2` varchar(45) NOT NULL,
+  `alamat_saudara2` longtext NOT NULL,
+  `status_rumah_saudara2` varchar(20) NOT NULL,
+  `telp_saudara2` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_calon_karyawan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`datapengalaman_ck`;
+CREATE TABLE  `recruitment`.`datapengalaman_ck` (
+  `no_datapengalaman` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_calon_karyawan` varchar(25) NOT NULL,
+  `perusahaan` varchar(45) NOT NULL,
+  `gaji_sebelumnya` int(10) unsigned NOT NULL,
+  `jabatan_sebelumnya` varchar(45) NOT NULL,
+  `tahun_kerja_sebelumnya` varchar(45) NOT NULL,
+  `alasan_berhenti` varchar(85) NOT NULL,
+  `jobdesk_sebelumnya` longtext NOT NULL,
+  PRIMARY KEY (`no_datapengalaman`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7038 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`datapribadi_ck`;
+CREATE TABLE  `recruitment`.`datapribadi_ck` (
+  `id_calon_karyawan` varchar(25) NOT NULL,
+  `no_ktp` varchar(20) DEFAULT NULL,
+  `nama_lengkap` varchar(45) DEFAULT NULL,
+  `tempat_lahir` varchar(45) DEFAULT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
+  `jen_kel` varchar(15) DEFAULT NULL,
+  `status_perkawinan` varchar(15) DEFAULT NULL,
+  `alamat_domisili` varchar(100) DEFAULT NULL,
+  `alamat_ktp` varchar(100) DEFAULT NULL,
+  `status_rumah` varchar(15) DEFAULT NULL,
+  `agama` varchar(15) DEFAULT NULL,
+  `warga_negara` varchar(5) DEFAULT NULL,
+  `telp1` varchar(20) DEFAULT NULL,
+  `telp2` varchar(20) DEFAULT NULL,
+  `alamat_email` varchar(70) DEFAULT NULL,
+  `facebook_id` varchar(70) DEFAULT NULL,
+  `instagram_id` varchar(70) DEFAULT NULL,
+  `tweeter_id` varchar(70) DEFAULT NULL,
+  `divisi` varchar(20) DEFAULT NULL,
+  `bagian` varchar(20) DEFAULT NULL,
+  `gaji` int(10) unsigned DEFAULT NULL,
+  `kodecbg` varchar(35) DEFAULT NULL,
+  `sumber_lamaran` varchar(45) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `status` varchar(25) NOT NULL,
+  `create_user` varchar(45) DEFAULT NULL,
+  `hasil_test` varchar(35) DEFAULT NULL,
+  PRIMARY KEY (`id_calon_karyawan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`datasekolah_ck`;
+CREATE TABLE  `recruitment`.`datasekolah_ck` (
+  `no_datasekolah` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_calon_karyawan` varchar(25) NOT NULL,
+  `pendidikan` varchar(10) NOT NULL,
+  `nama_sekolah` varchar(85) NOT NULL,
+  `tahun_sekolah` varchar(85) NOT NULL,
+  `status_sekolah` varchar(45) NOT NULL,
+  `create_time` datetime NOT NULL,
+  PRIMARY KEY (`no_datasekolah`,`create_time`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=7798 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`dataskill_ck`;
+CREATE TABLE  `recruitment`.`dataskill_ck` (
+  `id_calon_karyawan` varchar(25) NOT NULL DEFAULT '',
+  `skill` longtext NOT NULL,
+  `pemberian_jaminan` varchar(10) NOT NULL,
+  `nama_kenalan` varchar(45) NOT NULL,
+  `hubungan_kenalan` varchar(45) NOT NULL,
+  `jabatan_kenalan` varchar(45) NOT NULL,
+  `prestasi_ck` varchar(85) NOT NULL,
+  `tiga_kelebihan` varchar(150) NOT NULL DEFAULT '',
+  `tiga_kekurangan` varchar(150) NOT NULL DEFAULT '',
+  `penempatan_di_cabang` varchar(10) NOT NULL,
+  `kesehatan` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_calon_karyawan`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`datasutri_ck`;
+CREATE TABLE  `recruitment`.`datasutri_ck` (
+  `id_calon_karyawan` varchar(25) NOT NULL,
+  `nama_sutri` varchar(45) DEFAULT NULL,
+  `alamat_sutri` longtext,
+  `status_rumah_sutri` varchar(45) DEFAULT NULL,
+  `nama_anak` varchar(45) DEFAULT NULL,
+  `ttl_anak` varchar(50) DEFAULT NULL,
+  `jenis_kelamin_anak` varchar(40) DEFAULT NULL,
+  PRIMARY KEY (`id_calon_karyawan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`hasil_psikotest`;
+CREATE TABLE  `recruitment`.`hasil_psikotest` (
+  `id_calon_karyawan` varchar(25) NOT NULL,
+  `subaspek` varchar(45) NOT NULL,
+  `aspek` varchar(45) NOT NULL,
+  `id_radio` varchar(3) NOT NULL,
+  `nilai` varchar(1) NOT NULL,
+  `create_user` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_calon_karyawan`,`subaspek`,`aspek`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`hasil_psikotest_staff`;
+CREATE TABLE  `recruitment`.`hasil_psikotest_staff` (
+  `id_calon_karyawan` varchar(25) NOT NULL,
+  `inteligensi` varchar(25) NOT NULL,
+  `kepribadian` varchar(95) NOT NULL,
+  `catatan` longtext NOT NULL,
+  `user_create` varchar(45) NOT NULL,
+  `create_time` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_calon_karyawan`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`list_divisi`;
+CREATE TABLE  `recruitment`.`list_divisi` (
+  `id_divisi` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nama_divisi` varchar(45) NOT NULL,
+  `level` varchar(10) NOT NULL,
+  PRIMARY KEY (`id_divisi`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`list_jabatan`;
+CREATE TABLE  `recruitment`.`list_jabatan` (
+  `id_jabatan` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nama_jabatan` varchar(45) NOT NULL,
+  `level` varchar(10) NOT NULL,
+  PRIMARY KEY (`id_jabatan`,`nama_jabatan`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`list_status_rumah`;
+CREATE TABLE  `recruitment`.`list_status_rumah` (
+  `id_status_rumah` int(3) unsigned NOT NULL AUTO_INCREMENT,
+  `status_rumah` varchar(15) NOT NULL,
+  PRIMARY KEY (`id_status_rumah`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`list_sumber`;
+CREATE TABLE  `recruitment`.`list_sumber` (
+  `id_sumber` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nama_sumber` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_sumber`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_a_soal`;
+CREATE TABLE  `recruitment`.`psikotest_a_soal` (
+  `soalke` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bagke` varchar(1) NOT NULL,
+  `soal` longblob,
+  `jawab1` longblob,
+  `jawab2` longblob,
+  `jawab3` longblob,
+  `jawab4` longblob,
+  `jawab5` longblob,
+  `jawab6` longblob,
+  `jawab7` longblob,
+  `jawab8` longblob,
+  `jawabreal` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`soalke`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_b_soal`;
+CREATE TABLE  `recruitment`.`psikotest_b_soal` (
+  `soalke` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bagke` int(10) unsigned NOT NULL,
+  `keterangan` varchar(45) NOT NULL,
+  `jawaban` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`soalke`,`bagke`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_c_soal`;
+CREATE TABLE  `recruitment`.`psikotest_c_soal` (
+  `soalke` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bagke` varchar(1) NOT NULL,
+  `keterangan` longtext NOT NULL,
+  `jawaban` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`soalke`,`bagke`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_d_soal`;
+CREATE TABLE  `recruitment`.`psikotest_d_soal` (
+  `soalke` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bagke` varchar(1) NOT NULL,
+  `keterangan` longtext NOT NULL,
+  `subsoal` longtext,
+  PRIMARY KEY (`soalke`,`bagke`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_data_kary`;
+CREATE TABLE  `recruitment`.`psikotest_data_kary` (
+  `no_calon_kary` varchar(25) NOT NULL,
+  `kode_unik` varchar(25) NOT NULL,
+  `start_a` datetime DEFAULT NULL,
+  `part_a` varchar(1) DEFAULT NULL,
+  `end_a` datetime DEFAULT NULL,
+  `start_b` datetime DEFAULT NULL,
+  `end_b` datetime DEFAULT NULL,
+  `start_c` datetime DEFAULT NULL,
+  `end_c` datetime DEFAULT NULL,
+  `start_d` datetime DEFAULT NULL,
+  `end_d` datetime DEFAULT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`no_calon_kary`,`kode_unik`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_proses_test`;
+CREATE TABLE  `recruitment`.`psikotest_proses_test` (
+  `no_calon_kary` varchar(25) NOT NULL,
+  `kode_unik` varchar(25) NOT NULL,
+  `bagiantest` varchar(1) NOT NULL,
+  `soalno` int(10) unsigned NOT NULL,
+  `jawaban` varchar(5) NOT NULL,
+  `createtime` datetime NOT NULL,
+  PRIMARY KEY (`no_calon_kary`,`kode_unik`,`bagiantest`,`soalno`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_proses_test_b`;
+CREATE TABLE  `recruitment`.`psikotest_proses_test_b` (
+  `no_calon_kary` varchar(25) NOT NULL,
+  `kode_unik` varchar(15) NOT NULL,
+  `bagiantest` varchar(1) NOT NULL,
+  `soalno` int(10) unsigned NOT NULL,
+  `jawaban` varchar(5) NOT NULL,
+  `ml` varchar(1) NOT NULL,
+  `createtime` datetime NOT NULL,
+  PRIMARY KEY (`no_calon_kary`,`kode_unik`,`bagiantest`,`soalno`,`ml`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_proses_test_c`;
+CREATE TABLE  `recruitment`.`psikotest_proses_test_c` (
+  `no_calon_kary` varchar(25) NOT NULL,
+  `kode_unik` varchar(15) NOT NULL,
+  `bagiantest` varchar(1) NOT NULL,
+  `soalno` int(10) unsigned NOT NULL,
+  `jawaban` varchar(5) NOT NULL,
+  `createtime` datetime NOT NULL,
+  PRIMARY KEY (`no_calon_kary`,`kode_unik`,`bagiantest`,`soalno`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_proses_test_d`;
+CREATE TABLE  `recruitment`.`psikotest_proses_test_d` (
+  `no_calon_kary` varchar(25) NOT NULL,
+  `kode_unik` varchar(15) NOT NULL,
+  `bagiantest` varchar(1) NOT NULL,
+  `soalno` int(10) unsigned NOT NULL,
+  `jawaban` varchar(5) NOT NULL,
+  `createtime` datetime NOT NULL,
+  PRIMARY KEY (`no_calon_kary`,`kode_unik`,`bagiantest`,`soalno`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`psikotest_spek_timer`;
+CREATE TABLE  `recruitment`.`psikotest_spek_timer` (
+  `bagian` varchar(1) NOT NULL,
+  `waktu` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`bagian`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`secure_user_session`;
+CREATE TABLE  `recruitment`.`secure_user_session` (
+  `user_log_session` varchar(200) NOT NULL,
+  `user_log_ip` varchar(22) NOT NULL,
+  `user_log_id` varchar(22) NOT NULL,
+  `user_log_kodecabang` varchar(10) DEFAULT NULL,
+  `user_key_pass` varchar(245) NOT NULL,
+  `user_login_time` datetime NOT NULL,
+  `user_logout_time` datetime DEFAULT NULL,
+  `user_login_state` varchar(1) NOT NULL,
+  PRIMARY KEY (`user_log_session`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_format_hasiltest`;
+CREATE TABLE  `recruitment`.`spek_format_hasiltest` (
+  `subaspek` varchar(45) NOT NULL,
+  `aspek` varchar(45) NOT NULL,
+  `no` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`subaspek`,`aspek`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_jawaban_b`;
+CREATE TABLE  `recruitment`.`spek_jawaban_b` (
+  `disc` varchar(1) NOT NULL,
+  `ml` varchar(1) NOT NULL,
+  `soalke` int(10) unsigned NOT NULL,
+  `jawaban` varchar(5) NOT NULL,
+  PRIMARY KEY (`jawaban`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_jawaban_c`;
+CREATE TABLE  `recruitment`.`spek_jawaban_c` (
+  `soalno` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `jawaban` varchar(1) NOT NULL,
+  `nilai` varchar(1) NOT NULL,
+  PRIMARY KEY (`soalno`,`jawaban`)
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_jawaban_d`;
+CREATE TABLE  `recruitment`.`spek_jawaban_d` (
+  `kategori` varchar(2) NOT NULL,
+  `bagianke` int(10) unsigned NOT NULL,
+  `soalke` int(10) unsigned NOT NULL,
+  `total` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`bagianke`,`soalke`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_kcb`;
+CREATE TABLE  `recruitment`.`spek_kcb` (
+  `kombinasi` varchar(3) NOT NULL,
+  `hasil` varchar(1) NOT NULL,
+  PRIMARY KEY (`kombinasi`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_konfigurasi_spv`;
+CREATE TABLE  `recruitment`.`spek_konfigurasi_spv` (
+  `aspek` varchar(30) NOT NULL,
+  `kompetensi` varchar(45) NOT NULL,
+  `alat_tes` varchar(3) NOT NULL,
+  `jenis_alat_test` varchar(3) NOT NULL,
+  `min` double NOT NULL,
+  `max` double NOT NULL,
+  `keterangan` varchar(3) NOT NULL,
+  PRIMARY KEY (`aspek`,`kompetensi`,`alat_tes`,`min`,`max`,`keterangan`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_mink_spv`;
+CREATE TABLE  `recruitment`.`spek_mink_spv` (
+  `aspek` varchar(50) NOT NULL,
+  `mink` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`aspek`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_nilai_aspek`;
+CREATE TABLE  `recruitment`.`spek_nilai_aspek` (
+  `aspek` varchar(45) NOT NULL,
+  `kompetensi` varchar(45) NOT NULL,
+  `alat_test` varchar(3) NOT NULL,
+  `nilai` int(10) unsigned NOT NULL,
+  `keterangan` varchar(1) NOT NULL,
+  PRIMARY KEY (`aspek`,`kompetensi`,`alat_test`,`nilai`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_nilai_behavior_staff`;
+CREATE TABLE  `recruitment`.`spek_nilai_behavior_staff` (
+  `jabatan` varchar(100) NOT NULL,
+  `huruf` varchar(1) NOT NULL,
+  `min` int(10) unsigned NOT NULL,
+  `max` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`jabatan`,`huruf`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_nilai_iq_staff`;
+CREATE TABLE  `recruitment`.`spek_nilai_iq_staff` (
+  `totalbenar` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`totalbenar`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_nilai_pct_spv`;
+CREATE TABLE  `recruitment`.`spek_nilai_pct_spv` (
+  `jabatan` varchar(100) NOT NULL,
+  `disc` varchar(1) NOT NULL,
+  `min` int(10) unsigned NOT NULL,
+  `max` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`jabatan`,`disc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`spek_nilai_pct_staff`;
+CREATE TABLE  `recruitment`.`spek_nilai_pct_staff` (
+  `jabatan` varchar(100) NOT NULL,
+  `disc` varchar(1) NOT NULL,
+  `min` int(10) unsigned NOT NULL,
+  `max` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`jabatan`,`disc`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `recruitment`.`user`;
+CREATE TABLE  `recruitment`.`user` (
+  `no` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nama_user` varchar(50) NOT NULL,
+  `id_user` varchar(45) NOT NULL,
+  `departement` varchar(25) NOT NULL,
+  `status_id` varchar(45) NOT NULL,
+  `pass_user` varchar(100) NOT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;

@@ -1,0 +1,975 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Recruitment MDPU & TOP Finance</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+       	<link href="assets/template/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/main.css" />
+         
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+<style>
+#minimenu ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+/* Float the list items side by side */
+#minimenu ul.tab li {float: left;width:100%;}
+
+/* Style the links inside the list items */
+#minimenu ul.tab li a {
+    display: inline-block;
+    color: #B7BBCB;
+    text-align: center;
+    padding: 3px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+#minimenu ul.tab li a:hover {
+    color: black;
+    
+}
+
+/* Create an active/current tablink class */
+#minimenu ul.tab li .active {
+   color: black;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+        <link href="assets/css/datepicker.css" rel="stylesheet" type="text/css" />
+    
+	<link href="assets/template/css/style2.css" rel="stylesheet">
+	<link href="assets/template/css/jquery-ui.css" rel="stylesheet">
+	<style type="text/css">
+		.menu_label.required:after{ 
+		   content:"*";
+		   color:red;
+		}
+		.red{ 
+		   color:black;
+		}
+    </style>
+	<script type="text/javascript" src="assets/js/jquery.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-ui.js"></script>
+
+  <script type="text/javascript" src="gambar.js"></script>
+  <script type="text/javascript" src="assets/js/moment.js"></script>
+  <script type="text/javascript" src="assets/js/daterangepicker.js"></script>
+
+
+
+<script type="text/javascript" src="daftar.js"></script>
+ 
+ <style type="text/css"> 
+ .ui-state-default.ui-state-active {
+	background: #f1bc41;
+	border: 2px solid #ffbf00;
+ }
+</style>
+    
+    
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    evt.currentTarget.className += " active";
+	
+}
+
+function gantiform(isiid){
+
+	if (isiid=="btn_2")
+	{
+		document.getElementById("step_2").style.display = "none" ;
+		document.getElementById("step_3").style.display = "" ;
+		$('#datapribadi').removeClass("menu_title active");
+		$('#datakeluarga').addClass("menu_title active");
+	}
+	else if(isiid=="btn_3")
+	{
+		document.getElementById("step_2").style.display = "none" ;
+		document.getElementById("step_3").style.display = "none" ;
+		document.getElementById("step_4").style.display = "" ;
+		$('#datapribadi').removeClass("menu_title active");
+		$('#datakeluarga').removeClass("menu_title active");
+		$('#datapengalaman').addClass("menu_title active");
+
+	}
+	else if(isiid=="btn_4")
+	{
+		document.getElementById("step_2").style.display = "none" ;
+		document.getElementById("step_3").style.display = "none" ;
+		document.getElementById("step_4").style.display = "none" ;
+		document.getElementById("step_5").style.display = "" ;
+		$('#datapribadi').removeClass("menu_title active");
+		$('#datakeluarga').removeClass("menu_title active");
+		$('#datapengalaman').removeClass("menu_title active");
+		$('#skill_lain').addClass("menu_title active");
+
+	}
+	else if(isiid=="btn_5")
+	{
+		document.getElementById("step_2").style.display = "none" ;
+		document.getElementById("step_3").style.display = "none" ;
+		document.getElementById("step_4").style.display = "none" ;
+		document.getElementById("step_5").style.display = "none" ;
+		document.getElementById("ending").style.display = "" ;
+		$('#datapribadi').removeClass("menu_title active");
+		$('#datakeluarga').removeClass("menu_title active");
+		$('#datapengalaman').removeClass("menu_title active");
+		$('#skill_lain').addClass("menu_title active");
+
+	}
+	else if(isiid=="intro_btn_back3")
+	{
+		document.getElementById("step_2").style.display = "" ;
+		document.getElementById("step_3").style.display = "none" ;
+		$('#datapribadi').addClass("menu_title active");
+		$('#datakeluarga').removeClass("menu_title active");
+		$('#datapengalaman').removeClass("menu_title active");
+	}
+	else if(isiid=="intro_btn_back4")
+	{
+		document.getElementById("step_2").style.display = "none" ;
+		document.getElementById("step_3").style.display = "" ;
+		document.getElementById("step_4").style.display = "none" ;
+		$('#datapribadi').removeClass("menu_title active");
+		$('#datakeluarga').addClass("menu_title active");
+		$('#datapengalaman').removeClass("menu_title active");
+	}	
+	else if(isiid=="intro_btn_back5")
+	{
+		document.getElementById("step_2").style.display = "none" ;
+		document.getElementById("step_3").style.display = "none" ;
+		document.getElementById("step_4").style.display = "" ;
+		document.getElementById("step_5").style.display = "none" ;
+		$('#datapribadi').removeClass("menu_title active");
+		$('#datakeluarga').removeClass("menu_title active");
+		$('#datapengalaman').addClass("menu_title active");
+		$('#skill_lain').removeClass("menu_title active");
+	}	
+	else if(isiid=="intro_btn_back6")
+	{
+		document.getElementById("step_2").style.display = "none" ;
+		document.getElementById("step_3").style.display = "none" ;
+		document.getElementById("step_4").style.display = "none" ;
+		document.getElementById("step_5").style.display = "" ;
+		document.getElementById("ending").style.display = "none" ;
+		$('#datapribadi').removeClass("menu_title active");
+		$('#datakeluarga').removeClass("menu_title active");
+		$('#datapengalaman').addClass("menu_title active");
+		$('#skill_lain').removeClass("menu_title active");
+	}	
+	
+}
+window.onload = function myFunction() {
+			var h = window.innerHeight;
+			var z = h-35+"px";
+			h = h+"px";
+			document.getElementById("one").style.height = h;
+			document.getElementById("in-one").style.height = z;
+			document.getElementById("in-one").style.overflow = "scroll";
+		}
+</script>
+        
+	</head>
+	<body>
+
+		<!-- Sidebar -->
+			<section id="sidebars">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Selamat Datang</a></li>
+							<li><a href="#one">Isi Data Anda</a></li>
+                            <li><a href="#two">Terima Kasih</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							<h1>Selamat Datang</h1>
+							<p>Ini adalah website recruitment calon karyawan<br />
+							PT TOP & MDPU Finance.</p>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly">Isi Data Anda</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						
+                        <div class="inner">
+                        	<div id="in-one" style="background-color:#FFF; min-height:300px; color: black; padding: 15px">
+                            <div class="col-xs-12 col-sm-3 col-sm-height">
+				<ul id="sidebar" class="nav nav-stacked sidebar">
+	<h2 class="side-title"></h2>
+	<li class="menu_title" style="position:relative;display:block;padding: 10px 15px;">Data Permohonan</li>
+	<li id="datapribadi" class="menu_title active" style="position:relative;display:block;padding: 10px 15px;">Data Pribadi</li>
+    <li id="datakeluarga" class="menu_title" style="position:relative;display:block;padding: 10px 15px;">Data Keluarga</li>
+    <li id="datapengalaman" class="menu_title" style="position:relative;display:block;padding: 10px 15px;">Data Pengalaman</li>
+    <li id="skill_lain" class="menu_title" style="position:relative;display:block;padding: 10px 15px;">Skill &amp; Lain-Lain</li>
+</ul>			</div>
+
+<form action="" id='data_sim' method="post" accept-charset="utf-8">
+<input type="hidden" name="class" value="form-horizontal" style="display:none;" />
+<input type="hidden" name="id" value="json_data_inputform" style="display:none;" />
+<input type="hidden" name="name" value="json_data_inputform" style="display:none;" />
+
+<!-- 
+
+<div id="step_1" class="col-xs-12 col-sm-9 col-sm-height col-sm-top contentbar">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12"><h1>Data Permohonan</h1></div>
+	</div>
+	<div class="row row-form" id="calon_karyawan">
+		<div class="col-xs-12 col-sm-3">
+			<label for="calon_no_karyawan" class="menu_label">Calon No. Karyawan</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<input id="calon_no_karyawan" name="calon_no_karyawan" type="text" class="form-control" readonly value="<?php ?>" />
+				<span class="text-danger"></span>
+		</div>
+	</div>
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="nama_lengkap" class="menu_label">Nama Lengkap</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="nama_lengkap" name="nama_lengkap" placeholder="nama_lengkap" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="divisi" class="menu_label">Divisi</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">
+						<span class="text-danger"> <select name="divisi" class = "form-control" id ="divisi" style="text-transform:uppercase">
+<option value="" selected="selected">- Silakan Pilih -</option>
+                <?php
+                    $sql = mysql_query("SELECT * FROM `supplier`");
+                    while ($supplier = mysql_fetch_array($sql)) {
+                        echo '<option value="'.$supplier['nama_supplier'].'">'.$supplier['nama_supplier'].'</option>';
+                    }
+                ?>
+</select>
+</span> 
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="bagian" class="menu_label">Bagian</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="bagian" name="bagian" placeholder="bagian" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="gaji" class="menu_label">Gaji</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="gaji" name="gaji" placeholder="gaji" type="text" class="form-control" style="text-transform:uppercase" value="" onkeypress="return isNumber(event)"  />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<hr/ style="margin-top:0px; margin-bottom:0px;">
+	<div class="row">
+		<ul class="pager">
+			<li class="next"><a href="#" id="intro_btn_back" name="button">Kembali</a></li>
+			<li class="next"><a href="#" onClick="gantiform" id="btn_1" name="btn_1">Lanjut</a></li>
+		</ul>
+	</div>
+</div> -->
+
+<!-- step_2 -->
+<div id="step_2" class="col-xs-12 col-sm-9 col-sm-height col-sm-top contentbar" style="display:">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12"><h1>Data Pribadi</h1></div>
+	</div>
+    
+
+	<div class="row row-form" id="calon_karyawan">
+		<div class="col-xs-12 col-sm-3">
+			<label for="calon_no_karyawan" class="menu_label">Calon No. Karyawan</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<input id="calon_no_karyawan" name="calon_no_karyawan" type="text" class="form-control" readonly value="<?php ?>" />
+				<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="no_ktp" class="menu_label">Nomor KTP</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="no_ktp" name="no_ktp" placeholder="no_ktp" type="text" class="form-control" style="text-transform:uppercase"  onkeypress="return isNumber(event)" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="Nama_lengkap" class="menu_label">Nama Lengkap</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="Nama_lengkap" name="Nama_lengkap" placeholder="Nama_lengkap" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="tempat" class="menu_label">Tempat, Tanggal Lahir</label>
+		</div>
+		<div class="col-xs-12 col-sm-5">                                    
+			<input id="tempat_lahir" name="tempat_lahir" placeholder="tempat_lahir" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+        
+		<div class="col-xs-12 col-sm-3">                                 
+			<input id="tanggal_lahir" name="tanggal_lahir" placeholder="tanggal_lahir" type="text" class="form-control" style="text-transform:uppercase" value="" />
+		</div>
+	</div>
+    
+	<div class="row row-form" id="jensi_kelamin">
+		<div class="col-xs-12 col-sm-3">
+			<label for="jen_kel" class="menu_label">Jenis Kelamin</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">
+						<span class="text-danger"> <select name="jen_kel" class = "form-control" id = "jen_kel" style="text-transform:uppercase">
+<option value="Laki-Laki">Laki-Laki</option>
+<option value="Perempuan">Perempuan</option>
+</select>
+</span> 
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="status_perkawinan" class="menu_label">Status Perkawinan</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">
+						<span class="text-danger"> <select name="status_perkawinan" class = "form-control" id = "status_perkawinan" style="text-transform:uppercase">
+<option value="Belum_kawin">Belum Kawin</option>
+<option value="Menikah">Menikah</option>
+</select>
+</span> 
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form" id="alamat_domisili">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_domisili" class="menu_label">Alamat Domisili</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="alamat_domisili" name="alamat_domisili" placeholder="alamat_domisili" type="text" class="form-control" style="text-transform:uppercase;height:70px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form" id="alamat_ktp">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_ktp" class="menu_label">Alamat KTP</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="alamat_ktp" name="alamat_ktp" placeholder="alamat_ktp" type="text" class="form-control"  style="text-transform:uppercase;height:70px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="kode_pos" class="menu_label">Kode Pos</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="kode_pos" name="kode_pos" placeholder="kode_pos" type="text" class="form-control" style="text-transform:uppercase"  onkeypress="return isNumber(event)" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="status_rumah" class="menu_label">Status Rumah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="status_rumah" name="status_rumah" placeholder="status_rumah" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="agama" class="menu_label">Agama</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="agama" name="agama" placeholder="agama" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="warga_negara" class="menu_label">Warga Negara</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">
+						<span class="text-danger"> <select name="warga_negara" class = "form-control" id = "warga_negara" style="text-transform:uppercase">
+<option value="wni">WNI</option>
+<option value="wna">WNA</option>
+</select>
+</span> 
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="telp1" class="menu_label">Telp</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="telp1" name="telp1" placeholder="telp1" type="text" class="form-control" style="text-transform:uppercase" value="" onkeypress="return isNumber(event)"  />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="telp2" class="menu_label">Telp2</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="telp2" name="telp2" placeholder="telp2" type="text" class="form-control" style="text-transform:uppercase" value="" onkeypress="return isNumber(event)"  />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_email" class="menu_label">Alamat Email</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="alamat_email" name="alamat_email" placeholder="alamat email" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="tinggi" class="menu_label">Tinggi</label>
+		</div>
+		<div class="col-xs-12 col-sm-3">                                    
+			<input id="tinggi" name="tinggi" placeholder="tinggi" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+			<label for="tinggi" class="menu_label" style="float: left;vertical-align: middle; padding-left: 0;">CM,</label>
+
+		<div class="col-xs-12 col-sm-1">
+			<label for="berat_badan" class="menu_label">Berat Badan</label>
+		</div>
+		<div class="col-xs-12 col-sm-3">                                 
+			<input id="berat_badan" name="berat_badan" placeholder="berat_badan" type="text" class="form-control" style="text-transform:uppercase" value="" />
+		</div>
+			<label for="tinggi" class="menu_label" style="float: left;vertical-align: middle; padding-left: 0;">KG</label>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="nama_sutri" class="menu_label">Nama Suami/Istri</label>
+		</div>
+		<div class="col-xs-12 col-sm-4">                                    
+			<input id="nama_sutri" name="nama_sutri" placeholder="nama_sutri" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+			<label for="status_rumah_sutri" class="menu_label">Status Rumah Suami/Istri</label>
+		<div class="col-xs-12 col-sm-2">                                    
+			<input id="status_rumah_sutri" name="status_rumah_sutri" placeholder="status_rumah_sutri" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form" id="alamat_ktp">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_sutri" class="menu_label">Alamat Suami/Istri</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="alamat_sutri" name="alamat_sutri" placeholder="alamat_sutri" type="text" class="form-control"  style="text-transform:uppercase;height:70px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="nama_anak" class="menu_label">Nama Anak</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="nama_anak" name="nama_anak" placeholder="nama_anak" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+
+    <Br>
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="divisi" class="menu_label">Divisi Yang Diinginkan</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">
+						<span class="text-danger"> <select name="divisi" class = "form-control" id ="divisi" style="text-transform:uppercase">
+<option value="" selected="selected">- Silakan Pilih -</option>
+                <?php
+                    $sql = mysql_query("SELECT * FROM `supplier`");
+                    while ($supplier = mysql_fetch_array($sql)) {
+                        echo '<option value="'.$supplier['nama_supplier'].'">'.$supplier['nama_supplier'].'</option>';
+                    }
+                ?>
+</select>
+</span> 
+			<span class="text-danger"></span>
+		</div>
+	</div>
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="bagian" class="menu_label">Bagian Yang Diinginkan</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="bagian" name="bagian" placeholder="bagian" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="gaji" class="menu_label">Gaji Yang Diinginkan</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="gaji" name="gaji" placeholder="gaji" type="text" class="form-control" style="text-transform:uppercase" value="" onkeypress="return isNumber(event)"  />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<hr/ style="margin-top:0px; margin-bottom:0px;">
+	<div class="row">
+		<ul class="pager">
+			<li class="next"><a href="#step_2" id="intro_btn_back" name="button">Kembali</a></li>
+			<li class="next"><a href="#step_3" onClick="gantiform(this.id)" id="btn_2" name="btn_2">Lanjut</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<!-- step_3 -->
+<div id="step_3" class="col-xs-12 col-sm-9 col-sm-height col-sm-top contentbar" style="display:none">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12"><h1>Data Keluarga</h1></div>
+	</div>
+    
+    
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="nama_ayah" class="menu_label">Nama Ayah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="nama_ayah" name="nama_ayah" placeholder="nama_ayah" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="pekerjaan_ayah" class="menu_label">Pekerjaan Ayah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="pekerjaan_ayah" name="pekerjaan_ayah" placeholder="pekerjaan_ayah" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form" id="alamat_ayah">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_ayah" class="menu_label">Alamat Ayah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="alamat_ayah" name="alamat_ayah" placeholder="alamat_ayah" type="text" class="form-control"  style="text-transform:uppercase;height:70px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="status_rumah_ayah" class="menu_label">Status Rumah Ayah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="status_rumah_ayah" name="status_rumah_ayah" placeholder="status_rumah_ayah" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="telp_ayah" class="menu_label">No. Telp Ayah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="telp_ayah" name="telp_ayah" placeholder="telp_ayah" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<br>
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="nama_ibu" class="menu_label">Nama Ibu</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="nama_ibu" name="nama_ibu" placeholder="nama_ibu" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="pekerjaan_ibu" class="menu_label">Pekerjaan Ibu</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="pekerjaan_ibu" name="pekerjaan_ibu" placeholder="pekerjaan_ibu" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form" id="alamat_ibu">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_ibu" class="menu_label">Alamat Ibu</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="alamat_ibu" name="alamat_ibu" placeholder="alamat_ibu" type="text" class="form-control"  style="text-transform:uppercase;height:70px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="status_rumah_ibu" class="menu_label">Status Rumah Ibu</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="status_rumah_ibu" name="status_rumah_ibu" placeholder="status_rumah_ibu" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="telp_ibu" class="menu_label">No. Telp Ibu</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="telp_ibu" name="telp_ayah1" placeholder="telp_ibu" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+
+    <br>
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="saudara1" class="menu_label">Saudara 1</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="saudara1" name="saudara1" placeholder="saudara1" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form" id="alamat_saudara1">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_saudara1" class="menu_label">Alamat Saudara</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="alamat_saudara1" name="alamat_saudara1" placeholder="alamat_saudara1" type="text" class="form-control"  style="text-transform:uppercase;height:70px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="status_rumah_saudara1" class="menu_label">Status Rumah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="status_rumah_saudara1" name="status_rumah_saudara1" placeholder="status_rumah_saudara1" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="telp_saudara1" class="menu_label">No. Telp</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="telp_saudara1" name="telp_saudara1" placeholder="telp_saudara1" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+
+	<br>
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="saudara2" class="menu_label">Saudara 2</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="saudara2" name="saudara2" placeholder="saudara2" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form" id="alamat_saudara2">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_saudara2" class="menu_label">Alamat Saudara</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="alamat_saudara2" name="alamat_saudara2" placeholder="alamat_saudara2" type="text" class="form-control"  style="text-transform:uppercase;height:70px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="status_rumah_saudara2" class="menu_label">Status Rumah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="status_rumah_saudara2" name="status_rumah_saudara2" placeholder="status_rumah_saudara2" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="telp_saudara2" class="menu_label">No. Telp</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="telp_saudara2" name="telp_saudara2" placeholder="telp_saudara2" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+
+	<br>
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="saudara3" class="menu_label">Saudara 3</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="saudara3" name="saudara3" placeholder="saudara3" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+    
+	<div class="row row-form" id="alamat_saudara3">
+		<div class="col-xs-12 col-sm-3">
+			<label for="alamat_saudara3" class="menu_label">Alamat Saudara</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="alamat_saudara3" name="alamat_saudara3" placeholder="alamat_saudara3" type="text" class="form-control"  style="text-transform:uppercase;height:70px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="status_rumah_saudara3" class="menu_label">Status Rumah</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="status_rumah_saudara3" name="status_rumah_saudara3" placeholder="status_rumah_saudara3" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+	<div class="row row-form">
+		<div class="col-xs-12 col-sm-3">
+			<label for="telp_saudara3" class="menu_label">No. Telp</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+			<input id="telp_saudara3" name="telp_saudara3" placeholder="telp_saudara3" type="text" class="form-control" style="text-transform:uppercase" value="" />
+			<span class="text-danger"></span>
+		</div>
+	</div>
+
+
+	<hr/ style="margin-top:0px; margin-bottom:0px;">
+	<div class="row">
+		<ul class="pager">
+			<li class="next"><a href="#step_2" onClick="gantiform(this.id)" id="intro_btn_back3" name="button">Kembali</a></li>
+			<li class="next"><a href="#step_4" onClick="gantiform(this.id)" id="btn_3" name="btn_3">Lanjut</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<!-- step_4 -->
+<div id="step_4" class="col-xs-12 col-sm-9 col-sm-height col-sm-top contentbar" style="display:none">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12"><h1>Data Pengalaman</h1></div>
+	</div>
+
+<table id="table_pendidikan" border="1">
+  <thead>
+  	<th>Universitas/Sekolah</th>
+  </thead>
+  <tbody>
+  	<tr>
+  		<td>
+            <span id="mySpan1"></span>
+			<input name="hdnLine1" id="hdnLine1" type="hidden" value="1"/>	
+			&nbsp;<input name="lmpCreate" type="button" value="tambah" onClick="JavaScript:lmpCreateElement();"/>
+			&nbsp;<input name="lmpDelete" type="button" value="kurang" onClick="JavaScript:lmpDeleteElement();"/>
+            &nbsp;&nbsp;<p>Klik tambah Untuk Menambah Data Pendidikan Dan Klik kurang Untuk Mengurangi Data Pendidikan</p>	
+        </td>
+  	</tr>
+  </tbody>
+</table>
+
+<table id="table_pengalaman_kerja" border="1">
+  <thead>
+  	<th>Pengalaman Bekerja</th>
+  </thead>
+  <tbody>
+  	<tr>
+  		<td>
+            <span id="mySpan2"></span>
+			<input name="hdnLine2" id="hdnLine2" type="hidden" value="1"/>	
+			&nbsp;<input name="lmpCreate2" type="button" value="tambah" onClick="JavaScript:lmpCreateElement2();"/>
+			&nbsp;<input name="lmpDelete2" type="button" value="kurang" onClick="JavaScript:lmpDeleteElement2();"/>
+            &nbsp;&nbsp;<p>Klik tambah Untuk Menambah Data Pengalaman Kerja Dan Klik kurang Untuk Mengurangi Data Pengalaman Kerja</p>	
+        </td>
+  	</tr>
+  </tbody>
+</table>
+
+
+	<hr/ style="margin-top:0px; margin-bottom:0px;">
+	<div class="row">
+		<ul class="pager">
+			<li class="next"><a href="#step_3" onClick="gantiform(this.id)" id="intro_btn_back4" name="button">Kembali</a></li>
+			<li class="next"><a href="#step_5" onClick="gantiform(this.id)" id="btn_4" name="btn_4">Lanjut</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<!-- step_5 -->
+<div id="step_5" class="col-xs-12 col-sm-9 col-sm-height col-sm-top contentbar" style="display:none">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12"><h1>Skill &amp; Lain-Lain</h1></div>
+	</div>
+
+    
+	<div class="row row-form" id="skillain">
+		<div class="col-xs-12 col-sm-3">
+			<label for="skill" class="menu_label">Skill</label>
+		</div>
+		<div class="col-xs-12 col-sm-8">                                    
+				<textarea id="skill" name="skill" placeholder="skill" type="text" class="form-control"  style="text-transform:uppercase;height:100px;resize:none;" value=""></textarea>
+				<span class="text-danger"></span>
+		</div>
+	</div>
+
+
+	<hr/ style="margin-top:0px; margin-bottom:0px;">
+	<div class="row">
+		<ul class="pager">
+			<li class="next"><a href="#step_4" onClick="gantiform(this.id)" id="intro_btn_back5" name="button">Kembali</a></li>
+			<li class="next"><a href="#ending" onClick="gantiform(this.id)" id="btn_5" name="btn_5">Lanjut</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<!-- step_6 -->
+<div id="ending" class="col-xs-12 col-sm-9 col-sm-height col-sm-top contentbar" style="display:none">
+	<div class="row">
+		<div class="col-xs-12 col-sm-12"><h1>Terima Kasih</h1></div>
+		<div class="col-xs-12 col-sm-12"><h1>Silahkan Tunggu</h1></div>
+	</div>
+
+
+
+	<hr/ style="margin-top:0px; margin-bottom:0px;">
+	<div class="row">
+		<ul class="pager">
+			<li class="next"><a href="#step_5" onClick="gantiform(this.id)" id="intro_btn_back5" name="button">Kembali</a></li>
+	</div>
+</div>
+</form>
+                            	
+                                
+                            
+                            </div>
+                        </div>
+                        
+					</section>
+                    
+        
+                    
+
+		<!-- Scripts -->
+        
+      <script type="text/javascript">
+      $(document).ready(function() {
+
+        $('#tanggal_lahir').daterangepicker({
+          singleDatePicker: true,
+          tanggal_mulai: moment().subtract(6, 'days')
+        });
+
+
+      });
+      </script>
+      
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			
+
+	</body>
+</html>

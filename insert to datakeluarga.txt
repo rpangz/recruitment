@@ -1,0 +1,13 @@
+
+	//input ke db
+	$query = sprintf("REPLACE INTO datakeluarga_ck VALUES('','$nama_ayah','$pekerjaan_ayah','$nama_ibu','$pekerjaan_ibu','$telp_ortu','$alamat_ortu','$status_rumah_ortu','$saudara1','$alamat_saudara1','$status_rumah_saudara1','$telp_saudara1','$saudara2','$alamat_saudara2','$status_rumah_saudara2','$telp_saudara2')");
+
+		
+	$sql = mysql_query($query);
+
+	if ($sql) {
+		echo "$query";
+	}
+	else {
+		echo "$query";
+	}

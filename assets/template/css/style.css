@@ -1,0 +1,106 @@
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* Custom page header */
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 760px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+}
+
+#welcome {
+  color: grey;
+  font-size: 20px;
+  font-weight: bold;
+  height: auto;
+  margin: 20px 5px;
+  text-align: right;
+}
+
+.top-buffer{
+	margin-top:50px!important;
+}
+
+.shortcut_bigbox{
+  width:auto;
+  height:auto;
+  background:#f7941e;
+  color:white;
+  margin:5px;
+  padding:6px 15px 6px 15px;
+  text-align:left;
+  -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -khtml-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.shortcut_bigbox_head{
+  font-size:24px;
+  border-bottom:1px solid white;
+  display: inline-block;
+  font-family: "GothamRndLight", Verdana, Tahoma;
+  font-weight:bold;
+}
+
+.shortcut_bigbox_child{
+  font-size:14px;
+  font-family: "GothamRndLight", Verdana, Tahoma;
+}
+
+a.shortcut{
+  text-decoration:none;
+  color:white;
+}
+
+#panel-content {
+    background: #ffffff -moz-linear-gradient(center top , #e0eef7, #ffffff) no-repeat scroll 0 0;
+    margin-top: 10px;
+}

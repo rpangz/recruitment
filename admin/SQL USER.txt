@@ -1,0 +1,25 @@
+INSERT INTO `maxone`.`user` (
+`no` ,
+`nama_user` ,
+`status_user` ,
+`divisi` ,
+`id_user` ,
+`pass_user`
+)
+VALUES 
+(NULL , 'BENNI  HERIPUTRANTO', 'MANAGER', 'GENERAL MANAGER', 'BENNI H', MD5( 'B3NN1' )),
+(NULL , 'ADE KUSWANTORO', 'HEAD', 'Administration & General', 'ADE KU', MD5( 'AD3KU' )),
+(NULL , 'SISCA PATRA AMELIA', 'HEAD', 'Director of Sales', 'SISCA PA', MD5( 'S1SCA' )),
+(NULL , 'YULIANTO SAPUTRA', 'HEAD', 'Front Office', 'YULIANTO SA', MD5( 'YUL1ANTO' )),
+(NULL , 'KURNIA WAHAB', 'HEAD', 'Engineering ', 'KURNIA WA', MD5( 'W4HAB' )),
+(NULL , 'TUTI INDRIANI', 'HEAD', 'Senior Supervisor ', 'TUTI IN', MD5( 'TUT1' )),
+(NULL , 'TB. KHISIN', 'HEAD', 'Restaurant', 'KHISIN', MD5( 'KH1SIN' )),
+(NULL , 'BOYKE', 'HEAD', 'Kitchen', 'BOYKE', MD5( 'B0YKE' )),
+(NULL , 'TRESNAWATI', 'HEAD', 'Human Resource', 'TRESNAWATI', MD5( 'TR3SNAWATI' )),
+
+(NULL , 'JENI', 'USER', 'Cashier', 'JENI', MD5( 'J3NI' )),
+(NULL , 'Deri', 'USER', 'Engineering', 'Deri', MD5( 'DER1' )),
+(NULL , 'Kiki', 'USER', 'Engineering', 'Kiki', MD5( 'KIK1' )),
+(NULL , 'Aris', 'USER', 'Engineering', 'Aris', MD5( 'AR1S' )),
+(NULL , 'Acep', 'USER', 'Front Office', 'Acep', MD5( 'AC3P' ));
+
